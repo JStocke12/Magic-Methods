@@ -19,3 +19,6 @@ class Rational:
 
     __str__(self):
         return str(self.p)+"/"+str(self.q)
+
+    __add__(self, other):
+        return Rational(self.p*other.q+other.p*self.q, self.q*other.q)
