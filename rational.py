@@ -22,3 +22,6 @@ class Rational:
 
     __add__(self, other):
         return Rational(self.p*other.q+other.p*self.q, self.q*other.q)
+
+    __sub__(self, other):
+        return Rational(self.p*other.q-other.p*self.q, self.q*other.q)
