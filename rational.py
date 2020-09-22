@@ -2,7 +2,7 @@ from math import gcd
 
 class Rational:
 
-    __init__(self, p, q):
+    def __init__(self, p, q):
         if q == 0:
             raise Exception("Cannot divide by 0")
         if (not type(p) is int) or (not type(q) is int):
@@ -14,20 +14,22 @@ class Rational:
             self.p = p//gcd(p,q)
             self.q = q//gcd(p,q)
 
-    __float__(self):
+    def __float__(self):
         return self.p/self.q
 
-    __str__(self):
+    def __str__(self):
         return str(self.p)+"/"+str(self.q)
 
-    __add__(self, other):
+    def __add__(self, other):
         return Rational(self.p*other.q+other.p*self.q, self.q*other.q)
 
-    __sub__(self, other):
+    def __sub__(self, other):
         return Rational(self.p*other.q-other.p*self.q, self.q*other.q)
 
-    __mul__(self, other):
+    def __mul__(self, other):
         return Rational(self.p*other.p, self.q*other.q)
 
-    __div__(self, other):
+    def __div__(self, other):
         return Rational(self.p*other.q, self.q*other.p)
+
+print(str(Rational(1,2)))
