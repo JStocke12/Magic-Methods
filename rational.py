@@ -29,7 +29,7 @@ class Rational:
     def __mul__(self, other):
         return Rational(self.p*other.p, self.q*other.q)
 
-    def __div__(self, other):
+    def __truediv__(self, other):
         return Rational(self.p*other.q, self.q*other.p)# div broken idk why
 
 a = Rational(1,2)
@@ -38,3 +38,4 @@ print("a = 1/2, b = 1/3")
 print("a + b = "+str(a+b))
 print("a - b = "+str(a-b))
 print("a * b = "+str(a*b))
+print("a / b = "+str(a/b))
