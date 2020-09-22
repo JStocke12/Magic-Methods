@@ -30,6 +30,11 @@ class Rational:
         return Rational(self.p*other.p, self.q*other.q)
 
     def __div__(self, other):
-        return Rational(self.p*other.q, self.q*other.p)
+        return Rational(self.p*other.q, self.q*other.p)# div broken idk why
 
-print(str(Rational(1,2)))
+a = Rational(1,2)
+b = Rational(1,3)
+print("a = 1/2, b = 1/3")
+print("a + b = "+str(a+b))
+print("a - b = "+str(a-b))
+print("a * b = "+str(a*b))
