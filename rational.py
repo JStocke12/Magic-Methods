@@ -40,9 +40,9 @@ print("a - b = "+str(a-b))
 print("a * b = "+str(a*b))
 print("a / b = "+str(a/b))"""
 
-cfracarr = [1,1,1,1]
-cfrac = Rational(cfracarr[0], 1)
-for i in cfracarr:
-    cfrac = Rational(i, 1) + Rational(1, 1)/cfrac
+def cfracfunc(cfracarr):
+    cfrac = Rational(cfracarr[0], 1)
+    for i in cfracarr:
+        cfrac = Rational(i, 1) + Rational(1, 1)/cfrac
 
-print(cfrac)
+print(float(cfracfunc([1,1,1,1,1])))
