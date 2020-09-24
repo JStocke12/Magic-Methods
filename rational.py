@@ -21,16 +21,20 @@ class Rational:
         return str(self.p)+"/"+str(self.q)
 
     def __add__(self, other):
+        other = Rational(other, 1) if type(other) is int else other
         return Rational(self.p*other.q+other.p*self.q, self.q*other.q)
 
     def __sub__(self, other):
+        other = Rational(other, 1) if type(other) is int else other
         return Rational(self.p*other.q-other.p*self.q, self.q*other.q)
 
     def __mul__(self, other):
+        other = Rational(other, 1) if type(other) is int else other
         return Rational(self.p*other.p, self.q*other.q)
 
     def __truediv__(self, other):
-        return Rational(self.p*other.q, self.q*other.p)# div broken idk why
+        other = Rational(other, 1) if type(other) is int else other
+        return Rational(self.p*other.q, self.q*other.p)
 
 a = Rational(1,2)
 b = Rational(1,3)
