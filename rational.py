@@ -46,4 +46,4 @@ def cfracfunc(cfracarr):
         cfrac = Rational(i, 1) + Rational(1, 1)/cfrac
     return cfrac
 
-print(float(cfracfunc([1,1,1,1,1])))
+print([float(cfracfunc([1]*i)) for i in range(1,10)])
