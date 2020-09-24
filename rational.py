@@ -47,9 +47,10 @@ def cfracfunc(cfracarrden, cfracarrnum=None):
             cfrac = Rational(i, 1) + Rational(1, 1)/cfrac
         return cfrac
     else:
-        cfrac = Rational(cfracarrden[0], 1)
-        for i in zip(cfracarrden, cfracarrnum):
+        cfrac = Rational(cfracarrden.pop(1), 1)
+        for i in zip(cfracarrden[::-1], cfracarrnum[::-1]):
             cfrac = Rational(i[0], 1) + Rational(i[1], 1)/cfrac
         return cfrac
 
 print([float(cfracfunc([1]*i)) for i in range(1,10)])
+print([float(cfracfunc([3]+[6]*i,[(j*2+1)**2 for j in range(0,i)])) for i in range(1,10)])
