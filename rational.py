@@ -40,8 +40,8 @@ print("a - b = "+str(a-b))
 print("a * b = "+str(a*b))
 print("a / b = "+str(a/b))"""
 
-def cfracfunc(cfracarrden, cfracarrnum):
-    if type(cfracarrnum) is none:
+def cfracfunc(cfracarrden, cfracarrnum=None):
+    if cfracarrnum is None:
         cfrac = Rational(cfracarrden[0], 1)
         for i in cfracarrden:
             cfrac = Rational(i, 1) + Rational(1, 1)/cfrac
@@ -52,4 +52,4 @@ def cfracfunc(cfracarrden, cfracarrnum):
             cfrac = Rational(i[0], 1) + Rational(i[1], 1)/cfrac
         return cfrac
 
-print([float(cfracfunc([1]*i)) for i in range(1,10)])
+print([float(cfracfunc([1]*i,)) for i in range(1,10)])
