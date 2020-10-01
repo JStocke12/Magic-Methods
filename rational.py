@@ -21,6 +21,8 @@ class Rational:
         return str(self.p)+"/"+str(self.q)
 
     def __add__(self, other):
+        if type(other) == int:
+            other = Rational(other, 1)
         return Rational(self.p*other.q+other.p*self.q, self.q*other.q)
 
     def __sub__(self, other):
@@ -39,6 +41,8 @@ print("a + b = "+str(a+b))
 print("a - b = "+str(a-b))
 print("a * b = "+str(a*b))
 print("a / b = "+str(a/b))"""
+
+print(Rational(1, 2)+1)
 
 def cfracfunc(cfracarrden, cfracarrnum=None):
     if cfracarrnum is None:
