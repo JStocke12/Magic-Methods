@@ -21,16 +21,44 @@ class Rational:
         return str(self.p)+"/"+str(self.q)
 
     def __add__(self, other):
+        if type(other) == int:
+            other = Rational(other, 1)
         return Rational(self.p*other.q+other.p*self.q, self.q*other.q)
 
     def __sub__(self, other):
+        if type(other) == int:
+            other = Rational(other, 1)
         return Rational(self.p*other.q-other.p*self.q, self.q*other.q)
 
     def __mul__(self, other):
+        if type(other) == int:
+            other = Rational(other, 1)
         return Rational(self.p*other.p, self.q*other.q)
 
     def __truediv__(self, other):
+        if type(other) == int:
+            other = Rational(other, 1)
         return Rational(self.p*other.q, self.q*other.p)
+
+    def __radd__(self, other):
+        if type(other) == int:
+            other = Rational(other, 1)
+        return Rational(self.p*other.q+other.p*self.q, self.q*other.q)
+
+    def __rsub__(self, other):
+        if type(other) == int:
+            other = Rational(other, 1)
+        return Rational(other.p*self.q-self.p*other.q, self.q*other.q)
+
+    def __rmul__(self, other):
+        if type(other) == int:
+            other = Rational(other, 1)
+        return Rational(self.p*other.p, self.q*other.q)
+
+    def __rtruediv__(self, other):
+        if type(other) == int:
+            other = Rational(other, 1)
+        return Rational(self.q*other.p, self.p*other.q)
 
 """a = Rational(1,2)
 b = Rational(1,3)
@@ -44,12 +72,12 @@ def cfracfunc(cfracarrden, cfracarrnum=None):
     if cfracarrnum is None:
         cfrac = Rational(cfracarrden[0], 1)
         for i in cfracarrden:
-            cfrac = Rational(i, 1) + Rational(1, 1)/cfrac
+            cfrac = i + 1/cfrac
         return cfrac
     else:
         cfrac = Rational(cfracarrden.pop(1), 1)
         for i in zip(cfracarrden[::-1], cfracarrnum[::-1]):
-            cfrac = Rational(i[0], 1) + Rational(i[1], 1)/cfrac
+            cfrac = i[0] + i[1]/cfrac
         return cfrac
 
 print([float(cfracfunc([1]*i)) for i in range(1,10)])
